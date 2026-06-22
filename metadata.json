@@ -1,0 +1,6 @@
+{
+  "name": "War Room Dashboard",
+  "description": "An interactive cyberpunk war room dashboard representing a subway station swarm telemetry system with live statistics updates and JARVIS HQ terminal interface.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

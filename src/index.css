@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom scrollbar styling for HUD look */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(9, 9, 11, 0.5);
+  border-left: 1px solid rgba(20, 184, 166, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(20, 184, 166, 0.3);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(20, 184, 166, 0.6);
+}
+
+/* Cyberpunk crt green scanline effect overlay */
+.crt-scanlines {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt-scanlines::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 20;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Hologram grid mesh overlay */
+.cyber-grid {
+  background-image: linear-gradient(rgba(20, 184, 166, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(20, 184, 166, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Keyframes for futuristic pulsing and glowing animations */
+@keyframes cyber-pulse {
+  0%, 100% {
+    opacity: 0.25;
+    box-shadow: 0 0 10px rgba(20, 184, 166, 0.2);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.5);
+  }
+}
+
+.animate-cyber-pulse {
+  animation: cyber-pulse 3s infinite ease-in-out;
+}
+
+@keyframes glow-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(20, 184, 166, 0.5), 0 0 10px rgba(20, 184, 166, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(20, 184, 166, 0.8), 0 0 20px rgba(20, 184, 166, 0.5);
+  }
+}
+
+.text-glow {
+  animation: glow-glow 2s infinite ease-in-out;
+}
+
+/* Pulse animation for OFFLINE badge */
+@keyframes pulse-offline {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+.pulse-offline {
+  animation: pulse-offline 2s infinite ease-in-out;
+}
+
+/* SVG Polygon Hover & Glow */
+.station-poly {
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  fill: transparent;
+  stroke: transparent;
+  pointer-events: auto;
+}
+
+@keyframes polygon-glow-pulse {
+  0%, 100% {
+    fill-opacity: 0.20;
+    stroke-opacity: 0.85;
+  }
+  50% {
+    fill-opacity: 0.30;
+    stroke-opacity: 1.0;
+  }
+}
+
+.station-poly:hover {
+  animation: polygon-glow-pulse 1.8s infinite ease-in-out;
+  stroke-width: 2;
+}
+
+/* Custom glow colors with native drop-shadow filtering */
+.station-poly-scrub:hover {
+  fill: #14b8a6;
+  stroke: #2dd4bf;
+  filter: drop-shadow(0 0 12px rgba(45, 212, 191, 0.85));
+}
+
+.station-poly-fraud:hover {
+  fill: #f59e0b;
+  stroke: #fbbf24;
+  filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.85));
+}
+
+.station-poly-chat:hover {
+  fill: #a855f7;
+  stroke: #c084fc;
+  filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.85));
+}
+
+.station-poly-payment:hover {
+  fill: #3b82f6;
+  stroke: #60a5fa;
+  filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.85));
+}
+
+.station-poly-jarvis:hover {
+  fill: #fbbf24;
+  stroke: #ffffff;
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.9));
+}
+
